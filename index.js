@@ -42,6 +42,7 @@ io.on('connection', (socket) => {
   socket.on('setUserId', (userId) => {
     connectedUsers[userId] = socket.id;
     socket.join(userId);
+    io.emit('updateUserStatus', getUserStatus());
   });
 
   socket.on('sendMessage', ({ message, to }) => {
@@ -50,9 +51,11 @@ io.on('connection', (socket) => {
    const messageWithTimestamp = {
     ...message,
     timestamp: new Date().toISOString(),
+    seen: false,
   };
 
   messages.push(messageWithTimestamp);
+
 
     fs.writeFile('messages.json', JSON.stringify(messages, null, 2), (err) => {
       if (err) {
@@ -62,8 +65,23 @@ io.on('connection', (socket) => {
 
     const receiverSocketId = connectedUsers[to];
     if (receiverSocketId) {
-      io.to(receiverSocketId).emit('receiveMessage', message);
+      io.to(receiverSocketId).emit('receiveMessage', messageWithTimestamp);
     }
+  });
+
+  socket.on('markMessagesAsSeen', ({ from, to }) => {
+    messages.forEach((msg) => {
+      if (msg.user === from && msg.to === to && !msg.seen) {
+        return { ...msg, seen: true };
+      }
+      return msg;
+    });
+    fs.writeFile('messages.json', JSON.stringify(messages, null, 2), (err) => {
+      if (err) {
+        console.error('Error writing to messages.json:', err);
+      }
+    });
+    io.emit('updateUserStatus', getUserStatus()); 
   });
 
   socket.on('disconnect', () => {
@@ -73,9 +91,18 @@ io.on('connection', (socket) => {
     );
     if (userId) {
       delete connectedUsers[userId];
+      io.emit('updateUserStatus', getUserStatus());
     }
   });
 });
+
+const getUserStatus = () => {
+  return users.map(user => ({
+    ...user,
+    online: connectedUsers.hasOwnProperty(user.id),
+    unseenMessages: messages.filter((msg) => msg.to === user.id && !msg.seen).length
+  }));
+};
 
 app.get('/messages', (req, res) => {
   try {
@@ -92,7 +119,11 @@ app.get('/users', (req, res) => {
   try {
     const data = fs.readFileSync('app.json', 'utf8');
     const users = JSON.parse(data);
-    res.status(200).json(users);
+    // res.status(200).json(users);
+    res.status(200).json(users.map(user => ({
+      ...user,
+      online: connectedUsers.hasOwnProperty(user.id)
+    })));
   } catch (err) {
     console.error('Error reading or parsing app.json:', err);
     res.status(500).json({ status: false, error: 'Internal server error.' });

@@ -1,44 +1,51 @@
 [
   {
-    "text": "hi deepak this satyam",
-    "user": "satyam345@mailinator.com",
-    "to": "51c81c2b-b80d-46ea-9585-fa2076457410",
-    "timestamp": "2024-06-06T06:53:59.274Z"
-  },
-  {
-    "text": "hi satyam this is deepak",
+    "text": "hiii satyam deepak this side",
     "user": "deepak@azikya.com",
     "to": "f2c66811-b500-4bc7-8037-e460c9362649",
-    "timestamp": "2024-06-06T06:54:11.881Z"
+    "timestamp": "2024-06-06T10:40:08.013Z",
+    "seen": false
   },
   {
-    "text": "hi harsh this is test demo",
-    "user": "demo@gmail.com",
-    "to": "0364b352-fedf-4fac-969a-9d45c9338300",
-    "timestamp": "2024-06-06T07:01:13.912Z"
-  },
-  {
-    "text": "hi deepak this is test demo",
-    "user": "demo@gmail.com",
+    "text": "yes depak",
+    "user": "satyam345@mailinator.com",
     "to": "51c81c2b-b80d-46ea-9585-fa2076457410",
-    "timestamp": "2024-06-06T07:01:35.457Z"
+    "timestamp": "2024-06-06T10:40:25.193Z",
+    "seen": false
   },
   {
-    "text": "hi demo how are you deepak this side",
+    "text": "done?",
     "user": "deepak@azikya.com",
-    "to": "e5bc3fe4-0a60-49fc-8dd8-0a448b00bd73",
-    "timestamp": "2024-06-06T07:02:04.134Z"
+    "to": "f2c66811-b500-4bc7-8037-e460c9362649",
+    "timestamp": "2024-06-06T10:48:13.336Z",
+    "seen": false
+  },
+  {
+    "text": "no",
+    "user": "satyam345@mailinator.com",
+    "to": "51c81c2b-b80d-46ea-9585-fa2076457410",
+    "timestamp": "2024-06-06T10:48:26.841Z",
+    "seen": false
+  },
+  {
+    "text": "hi",
+    "user": "satyam345@mailinator.com",
+    "to": "51c81c2b-b80d-46ea-9585-fa2076457410",
+    "timestamp": "2024-06-06T13:23:04.811Z",
+    "seen": false
+  },
+  {
+    "text": "hiiii",
+    "user": "harsh@azikya.com",
+    "to": "51c81c2b-b80d-46ea-9585-fa2076457410",
+    "timestamp": "2024-06-06T13:33:52.181Z",
+    "seen": false
   },
   {
     "text": "hii satyam",
-    "user": "demo@gmail.com",
+    "user": "harsh@azikya.com",
     "to": "f2c66811-b500-4bc7-8037-e460c9362649",
-    "timestamp": "2024-06-06T07:02:15.553Z"
-  },
-  {
-    "text": "hiii",
-    "user": "satyam345@mailinator.com",
-    "to": "e5bc3fe4-0a60-49fc-8dd8-0a448b00bd73",
-    "timestamp": "2024-06-06T07:02:25.556Z"
+    "timestamp": "2024-06-06T15:15:40.754Z",
+    "seen": false
   }
 ]
