@@ -100,6 +100,7 @@ io.on('connection', (socket) => {
   socket.on('outgoing:call', (data) => {
     const { fromOffer, to, fromUserId } = data;
     const toSocketId = connectedUsers[to];
+    console.log('outgoing:call', toSocketId);
 
     if (toSocketId) {
       socket.to(toSocketId).emit('incomming:call', { fromUserId: fromUserId, offer: fromOffer });
@@ -107,12 +108,19 @@ io.on('connection', (socket) => {
   });
 
   socket.on('call:accepted', data => {
-    console.log('call accepted from recevier', data);
     const { answer, to } = data;
     const toSocketId = connectedUsers[to];
+    console.log('call accepted from recevier', toSocketId);
     socket.to(toSocketId).emit('incomming:answere', { from: socket.id, offer: answer })
   });
 
+  socket.on('ice-candidate', ({ candidate, to }) => {
+    const toSocketId = connectedUsers[to];
+    console.log('ice-candidate', toSocketId);
+    if (toSocketId) {
+        socket.to(toSocketId).emit('ice-candidate', { candidate });
+    }
+});
 
   // socket.on('disconnect', () => {
   //     console.log(`user disconnected: ${socket.id}`);
