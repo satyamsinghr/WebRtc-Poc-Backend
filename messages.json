@@ -1,51 +1,51 @@
 [
   {
-    "text": "hiii satyam deepak this side",
-    "user": "deepak@azikya.com",
-    "to": "f2c66811-b500-4bc7-8037-e460c9362649",
-    "timestamp": "2024-06-06T10:40:08.013Z",
-    "seen": false
-  },
-  {
-    "text": "yes depak",
-    "user": "satyam345@mailinator.com",
-    "to": "51c81c2b-b80d-46ea-9585-fa2076457410",
-    "timestamp": "2024-06-06T10:40:25.193Z",
-    "seen": false
-  },
-  {
-    "text": "done?",
-    "user": "deepak@azikya.com",
-    "to": "f2c66811-b500-4bc7-8037-e460c9362649",
-    "timestamp": "2024-06-06T10:48:13.336Z",
-    "seen": false
-  },
-  {
-    "text": "no",
-    "user": "satyam345@mailinator.com",
-    "to": "51c81c2b-b80d-46ea-9585-fa2076457410",
-    "timestamp": "2024-06-06T10:48:26.841Z",
-    "seen": false
-  },
-  {
-    "text": "hi",
-    "user": "satyam345@mailinator.com",
-    "to": "51c81c2b-b80d-46ea-9585-fa2076457410",
-    "timestamp": "2024-06-06T13:23:04.811Z",
-    "seen": false
-  },
-  {
-    "text": "hiiii",
+    "text": "Hii Harsh this is deepak",
     "user": "harsh@azikya.com",
     "to": "51c81c2b-b80d-46ea-9585-fa2076457410",
-    "timestamp": "2024-06-06T13:33:52.181Z",
-    "seen": false
+    "timestamp": "2024-06-13T10:14:50.651Z",
+    "seen": true
   },
   {
-    "text": "hii satyam",
+    "text": "hi deepak",
+    "user": "deepak@azikya.com",
+    "to": "0364b352-fedf-4fac-969a-9d45c9338300",
+    "timestamp": "2024-06-13T10:15:33.050Z",
+    "seen": true
+  },
+  {
+    "text": "hi satyam harsh here",
     "user": "harsh@azikya.com",
     "to": "f2c66811-b500-4bc7-8037-e460c9362649",
-    "timestamp": "2024-06-06T15:15:40.754Z",
-    "seen": false
+    "timestamp": "2024-06-13T10:15:58.920Z",
+    "seen": true
+  },
+  {
+    "text": "hi harsh",
+    "user": "satyam345@mailinator.com",
+    "to": "0364b352-fedf-4fac-969a-9d45c9338300",
+    "timestamp": "2024-06-13T10:16:11.148Z",
+    "seen": true
+  },
+  {
+    "text": "hi harsh what are you doing ?",
+    "user": "satyam345@mailinator.com",
+    "to": "0364b352-fedf-4fac-969a-9d45c9338300",
+    "timestamp": "2024-06-13T10:19:27.590Z",
+    "seen": true
+  },
+  {
+    "text": "nothng you say?",
+    "user": "harsh@azikya.com",
+    "to": "f2c66811-b500-4bc7-8037-e460c9362649",
+    "timestamp": "2024-06-13T10:19:51.682Z",
+    "seen": true
+  },
+  {
+    "text": "fdgdfgdf",
+    "user": "satyam345@mailinator.com",
+    "to": "0364b352-fedf-4fac-969a-9d45c9338300",
+    "timestamp": "2024-06-13T10:20:08.388Z",
+    "seen": true
   }
 ]

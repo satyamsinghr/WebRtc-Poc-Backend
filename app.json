@@ -1,1 +1,4 @@
-[{"id":"51c81c2b-b80d-46ea-9585-fa2076457410","firstName":"deepak","lastName":"gupta","email":"deepak@azikya.com","password":"Test@123"},{"id":"0364b352-fedf-4fac-969a-9d45c9338300","firstName":"harsh","lastName":"yadav","email":"harsh@azikya.com","password":"Test@123"},{"id":"e5bc3fe4-0a60-49fc-8dd8-0a448b00bd73","firstName":"test","lastName":"demo","email":"demo@gmail.com","password":"Test@123"},{"id":"f2c66811-b500-4bc7-8037-e460c9362649","firstName":"satyam","lastName":"singh","email":"satyam345@mailinator.com","password":"Test@123"}]
+[{"id":"51c81c2b-b80d-46ea-9585-fa2076457410","firstName":"deepak","lastName":"gupta","email":"deepak@azikya.com","password":"Test@123"},
+{"id":"0364b352-fedf-4fac-969a-9d45c9338300","firstName":"harsh","lastName":"yadav","email":"harsh@azikya.com","password":"Test@123"},
+{"id":"e5bc3fe4-0a60-49fc-8dd8-0a448b00bd73","firstName":"test","lastName":"demo","email":"demo@gmail.com","password":"Test@123"},
+{"id":"f2c66811-b500-4bc7-8037-e460c9362649","firstName":"satyam","lastName":"singh","email":"satyam345@mailinator.com","password":"Test@123"}]

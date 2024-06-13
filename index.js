@@ -70,18 +70,23 @@ io.on('connection', (socket) => {
   });
 
   socket.on('markMessagesAsSeen', ({ from, to }) => {
-    messages.forEach((msg) => {
-      if (msg.user === from && msg.to === to && !msg.seen) {
-        return { ...msg, seen: true };
-      }
-      return msg;
+    messages = messages.map((msg) => {
+        if (msg.user === from && msg.to === to && !msg.seen) {
+          console.log('Updating message seen status:', msg);
+            return { ...msg, seen: true };
+        }
+        return msg;
     });
+    
     fs.writeFile('messages.json', JSON.stringify(messages, null, 2), (err) => {
       if (err) {
         console.error('Error writing to messages.json:', err);
       }
     });
-    io.emit('updateUserStatus', getUserStatus()); 
+   const receiverSocketId = connectedUsers[to];
+    if (receiverSocketId) {
+        io.to(receiverSocketId).emit('messagesMarkedAsSeen', { from });
+    }
   });
 
   socket.on('disconnect', () => {
