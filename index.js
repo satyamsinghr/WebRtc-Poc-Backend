@@ -118,9 +118,15 @@ io.on('connection', (socket) => {
     const toSocketId = connectedUsers[to];
     console.log('ice-candidate', toSocketId);
     if (toSocketId) {
-        socket.to(toSocketId).emit('ice-candidate', { candidate });
+      socket.to(toSocketId).emit('ice-candidate', { candidate });
     }
-});
+  });
+
+  socket.on('call:disconnect', ({ from, to }) => {
+    console.log(`Call disconnect requested by ${from} to ${to}`);
+    const toSocketId = connectedUsers[to];
+    io.to(toSocketId).emit('call:disconnected', { from });
+  });
 
   // socket.on('disconnect', () => {
   //     console.log(`user disconnected: ${socket.id}`);
@@ -162,6 +168,19 @@ app.get('/users', (req, res) => {
   }
 });
 
+app.get('/get-username', (req, res) => {
+  try {
+    const data = fs.readFileSync('app.json', 'utf8');
+    const users = JSON.parse(data);
+
+    const user = users.find(x => x.id == req.query.userId);
+    const userName = user.firstName + ' ' + user.lastName;
+    res.status(200).json(userName);
+  } catch (err) {
+    console.error('Error reading or parsing app.json:', err);
+    res.status(500).json({ status: false, error: 'Internal server error.' });
+  }
+});
 
 app.post('/signup', (req, res) => {
   const { firstName, lastName, email, password } = req.body;
