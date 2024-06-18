@@ -7,6 +7,9 @@ const server = http.createServer(app);
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
+const multer = require('multer');
+
+
 const io = socketIo(server, {
   cors: {
     origin: "*",
@@ -16,6 +19,20 @@ const io = socketIo(server, {
 
 app.use(cors());
 app.use(express.json());
+app.use('/files', express.static('files'));
+
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+      cb(null, 'files');
+  },
+  filename: (req, file, cb) => {
+      cb(null, `${Date.now()}-${file.originalname}`);
+  },
+});
+
+const upload = multer({ storage });
+
 
 let users = [];
 let messages = [];
@@ -177,6 +194,14 @@ const getUserStatus = () => {
     unseenMessages: messages.filter((msg) => msg.to === user.id && !msg.seen).length
   }));
 };
+
+app.post('/upload', upload.single('file'), (req, res) => {
+  if (req.file) {
+      res.status(200).json({ fileUrl: req.file.filename });
+  } else {
+      res.status(400).json({ error: 'File upload failed' });
+  }
+});
 
 app.get('/messages', (req, res) => {
   try {
